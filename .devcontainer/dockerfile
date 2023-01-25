@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/devcontainers/python:3.10-bullseye
+RUN curl -sSL https://install.python-poetry.org | python3 -
+#RUN apt-get update && apt-get -y install pulseaudio
+#RUN echo "default-server = dockerhost" >> /etc/pulse/client.conf

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "wakeword-training-record"
+version = "0.1.0"
+description = "Library to hande traning data for wakeword detectors."
+authors = ["Robin-St <robin@farsk.net>"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "wakeword_training_record"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

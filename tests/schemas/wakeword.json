@@ -1,0 +1,40 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "language": {
+        "type": "string"
+      },
+      "wakeword": {
+        "type": "string"
+      },
+      "syllabels": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "words": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "similar": {
+        "type": "array",
+        "items": [
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "required": [
+      "language",
+      "wakeword"
+    ]
+  }

@@ -248,6 +248,18 @@ files = [
 ]
 
 [[package]]
+name = "iso639-lang"
+version = "2.1.0"
+description = "A lightweight library for the ISO 639 standard."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "iso639-lang-2.1.0.tar.gz", hash = "sha256:8458e4b45bff6e8d449afc35ff9b5aaefb954400fe93a39f71c37e5b766e9856"},
+    {file = "iso639_lang-2.1.0-py3-none-any.whl", hash = "sha256:abaa4df7aeee0368e6b2b62b149eded5b005a4fea1c1d16e606d4820dcc51cf6"},
+]
+
+[[package]]
 name = "isort"
 version = "5.12.0"
 description = "A Python utility / library to sort Python imports."
@@ -606,4 +618,4 @@ testing = ["coverage (>=6.2)", "coverage-enable-subprocess (>=1)", "flaky (>=3.7
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "337bdcdbb75551884361289366128b60fea1e0c01079377a49895ced934e919a"
+content-hash = "1ddf38db74b4e8e2a97771544bbaadbd46e37641135a0c733391d0b4faf76044"

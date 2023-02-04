@@ -4,11 +4,14 @@ import uuid
 import zipfile
 from pathlib import Path
 
+from iso639 import Lang
+from iso639.exceptions import DeprecatedLanguageValue, InvalidLanguageValue
+
 _logger = logging.getLogger(__package__)
 
 
 def create(
-    path, wakeword, syllables=[], words=[], language="", similar="", overwrite=False
+    path, wakeword, language, syllables=[], words=[], similar=[], overwrite=False
 ):
     wakeword_dict = {
         "language": language,
@@ -65,3 +68,19 @@ def _write_wakeword_json(zip_file, dict):
     with zipfile.ZipFile(zip_file, "w") as z:
         # Write the JSON string to the json_file
         z.writestr("wakeword/wakeword.json", json_data)
+
+
+def getLanguageCode(language: str) -> str:
+    if len(language) > 2:
+        language = (
+            language[0].upper() + language[1:]
+        )  # Library needs upper case for language name, but cant handle it for codes
+    try:
+        language_code = Lang(language)
+        return language_code.pt1
+    except InvalidLanguageValue:
+        raise ValueError(f"{language} is not a recognized language")
+    except DeprecatedLanguageValue as e:
+        raise ValueError(
+            f"{language} is not a recognized language. Replaced by {Lang(e.change_to).name}?"
+        )

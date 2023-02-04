@@ -5,7 +5,12 @@ import zipfile
 import pytest
 from jsonschema import RefResolver, validate
 
-from wakeword_training_record.create import _get_path, _write_wakeword_json, create
+from wakeword_training_record.create import (
+    _get_path,
+    _write_wakeword_json,
+    create,
+    getLanguageCode,
+)
 
 
 def validate_json(json_data, schema_name):
@@ -80,3 +85,10 @@ def test_crate(tmpdir):
         # Write the JSON string to the json_file
         data = json.loads(z.read("wakeword/wakeword.json"))
         validate_json(data, "wakeword.json")
+
+
+def test_languagecode():
+    assert getLanguageCode("sv") == "sv"
+    assert getLanguageCode("swedish") == "sv"
+    with pytest.raises(ValueError):
+        getLanguageCode("xyz")
